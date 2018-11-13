@@ -5,6 +5,23 @@ class Point:
 
     attributes: x, y
     """
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        """return a Point object in human-readable format"""
+        return '({}, {})'.format(self.x, self.y)
+    
+    def __add__(self, other):
+        new_point = Point(self.x + other.x, self.y + other.y)
+        return new_point
+
+    def __eq__ (self, other):
+        return self.x == other.x and self.y == other.y
+
+    def __contains__ (self, value):
+        return value == self.x or value == self.y
 
 
 def print_point(p):
